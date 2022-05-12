@@ -1,0 +1,40 @@
+package Box;
+
+class Application {	
+	public static void main(String [] args)
+	{
+		PowTest.run();
+	}
+}
+
+class PowTest {
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);		
+		
+		for (;;) {
+			System.out.print("Tabanı giriniz:");
+			int a = Integer.parseInt(kb.nextLine());
+			
+			System.out.print("Üssü giriniz:");
+			int b = Integer.parseInt(kb.nextLine());
+			
+			System.out.printf("pow(%d, %d) = %d%n", a, b, NumberUtil.pow(a, b));
+			
+			if (a == 0) 
+				return;
+		}		
+	}
+}
+
+class NumberUtil {
+	public static int pow(int a, int b)
+	{
+		int result = 1;
+		
+		while (b-- > 0)
+			result *= a;			
+		
+		return result;			
+	}
+}
