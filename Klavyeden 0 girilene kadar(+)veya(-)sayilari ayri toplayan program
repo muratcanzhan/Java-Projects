@@ -1,0 +1,47 @@
+package Box;
+
+public class Application {
+	public static void main(String [] args)
+	{
+		FindPosNegSumApp.run();
+	}
+}
+
+class FindPosNegSumApp {
+	public static void PrintResult(int posSum,int negSum, int posCount, int negCount)
+	{	
+		if (posSum != 0) {
+			System.out.printf("Pozitif Sayıların Adeti: %d%n",posCount);
+			System.out.printf("Pozitif Sayıların Toplamı: %d%n",posSum);		
+		}
+		else
+			System.out.println("Hiç Pozitif Sayı Girmediniz");
+		
+		if (negSum != 0) {
+			System.out.printf("Negatif Sayıların Adeti: %d%n",negCount);
+			System.out.printf("Negatif Sayıların Toplamı: %d%n",negSum);			
+		}
+		else
+			System.out.println("Hiç Negatif Sayı Girmediniz");	
+		
+	}
+	
+	public static void run()
+	{
+	
+	java.util.Scanner kb = new java.util.Scanner(System.in);
+	int posSum = 0, negSum = 0, val, posCount = 0, negCount = 0;
+	System.out.println("Toplamak İstediğiniz Sayıları Giriniz :");
+		
+		while ((val = Integer.parseInt(kb.nextLine())) != 0)
+			if(val > 0) {
+				posSum += val;
+				++posCount;
+			}
+			else {
+				negSum += val;
+				++negCount;
+			}
+		PrintResult(posSum, negSum, posCount, negCount);
+	}
+}
