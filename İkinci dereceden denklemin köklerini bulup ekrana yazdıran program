@@ -1,6 +1,6 @@
-package csd;
+package Box;
 
-class App {	
+class Application {	
 	public static void main(String [] args)
 	{
 		EquationSolverApp.run();
