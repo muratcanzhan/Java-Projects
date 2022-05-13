@@ -1,0 +1,44 @@
+package csd;
+
+class App {	
+	public static void main(String [] args)
+	{		
+		FibonacciNumberTest.run();		
+    // Metot pozitif olmayan n değerleri için kontrol yapmayacaktır.
+	}
+}
+
+class FibonacciNumberTest {
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		for (;;) {
+			System.out.print("Bir sayı giriniz:");
+			int n = Integer.parseInt(kb.nextLine());
+			
+			if (n < 1)
+				break;
+			
+			System.out.printf("%d. Fibonacci sayısı:%d%n", n, NumberUtil.fibonacciNumber(n));
+		}
+	}
+}
+
+class NumberUtil {
+	public static int fibonacciNumber(int n) 
+	{
+		if (n <= 2)
+			return n - 1;
+		
+		int prev1 = 1, prev2 = 0, val = 0;
+		
+		for (int i = 2; i < n; ++i) {
+			val = prev1 + prev2;			
+			prev2 = prev1;
+			prev1 = val;
+		}
+		
+		return val;
+	}
+}
