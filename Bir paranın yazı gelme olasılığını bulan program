@@ -1,0 +1,51 @@
+package Box;
+
+class Application {	
+	public static void main(String [] args)
+	{
+		CoinSimulationApp.run();
+	}
+}
+
+class CoinSimulationApp {
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		CoinSimulation cs = new CoinSimulation();
+		
+		for (;;) {
+			System.out.print("Parayı kaç kez atmak istiyorsunuz?");
+			int n = Integer.parseInt(kb.nextLine());
+			
+			if (n <= 0)
+				break;
+			
+			cs.run(n);
+			
+			System.out.printf("Yazı gelme olasılığı:%f%n", cs.p);						
+		}
+		
+	}
+}
+
+
+class CoinSimulation {
+	public double p;
+	
+	public static int getTailCount(int n)
+	{
+		java.util.Random r = new java.util.Random();
+		int count = 0;
+		
+		for (int i = 0; i < n; ++i)
+			if (r.nextBoolean())
+				++count;
+		
+		return count;		
+	}
+	
+	public void run(int n)
+	{
+		p = getTailCount(n) / (double)n;
+	} 
+}
