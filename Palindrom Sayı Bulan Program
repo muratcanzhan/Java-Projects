@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Business {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Number: ");
+        int x = input.nextInt();
+        int result = 0;
+        isPalindrom(x,result);
+    }
+
+    public static void isPalindrom(int x ,int result)
+    {
+        int y = 0, z;
+
+        while(true) {
+            y = x % 10;
+            result += y;
+            result *= 10;
+            x /= 10;
+            if (x == 0) {
+                result /= 10;
+                System.out.println("Palindrom = " + result);
+                return;
+            }
+        }
+
+    }
+}
