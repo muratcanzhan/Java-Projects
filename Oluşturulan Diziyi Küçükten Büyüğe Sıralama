@@ -1,0 +1,21 @@
+import java.util.Scanner ;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Kaç elemanlı dizi olsun ? : ");
+        int n = input.nextInt();
+        int [] list = new int [n];
+        for(int i = 0; i < list.length; ++i) {
+            System.out.println("Dizinin " + i +". Elemanını giriniz: ");
+            list[i] = input.nextInt();
+        }
+        System.out.println("============Dizi============");
+        System.out.println(Arrays.toString(list));
+        Arrays.sort(list);
+        System.out.println("============Dizinin Sıralanmış Hali============");
+        System.out.println(Arrays.toString(list));
+    }
+}
