@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("DART GAME!");
+        System.out.print("Enter the number of darts to be thrown: ");
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            double x = (Math.random() * 10 - 5);
+            double y = (Math.random() * 10 - 5);
+            System.out.println("Dart " + i + ":");
+            System.out.print("Coordinates: (");
+            System.out.printf("%.1f", x);
+            System.out.print(" , ");
+            System.out.printf("%.1f", y);
+            System.out.println(")");
+            if (x == 0 || y == 0) {
+                System.out.println("Region: Undecided");
+            }
+            if (x > 0 && y > 0) {
+                if (x + y == 0)
+                    System.out.println("Region: Undecided");
+                else if (x + y < 5)
+                    System.out.println("Region: A");
+                else
+                    System.out.println("Region: B");
+            }
+            if (x < 0 && y < 0) {
+                if (x == y) {
+                    System.out.println("Region: Undecided");
+                } else if (x < y) {
+                    System.out.println("Region: D");
+                } else
+                    System.out.println("Region: E");
+            }
+            if (x > 0 && y < 0){
+                System.out.println("Region: F");
+            }
+            System.out.println();
+        }
+    }
+}
