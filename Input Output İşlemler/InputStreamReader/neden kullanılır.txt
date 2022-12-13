@@ -1,0 +1,2 @@
+InputStreamReader sınıfı
+bayt cinsinden verileri karakter cinsinden verilere dönüştürmek için kullanılabilir.
